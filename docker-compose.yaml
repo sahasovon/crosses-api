@@ -1,0 +1,14 @@
+version: '3'
+
+services:
+      
+  tb-mongo:
+    container_name: crosses-db
+    image: 'mongo'
+    restart: 'no'
+    expose:
+      - "27017"
+    ports:
+      - "27017:27017"
+    volumes:
+      - "./mongo:/data/db"
