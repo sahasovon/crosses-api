@@ -11,8 +11,12 @@ const GameSchema = new mongoose.Schema({
         default: Date.now,
     },
     boxData: {
-        type: [Number],
+        type: Array,
         required: true
+    },
+    filledData: {
+        type: Number,
+        default: 0
     },
     players: {
         first: {
@@ -35,7 +39,9 @@ const GameSchema = new mongoose.Schema({
         enum: ['ongoing', 'first', 'second', 'draw'],
         default: 'ongoing'
     },
-    resultBoxes: [Number],
+    resultBoxes: {
+        type: Array
+    },
     activities: [String]
 }, {timestamps: true});
 
