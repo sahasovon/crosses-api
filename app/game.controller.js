@@ -99,7 +99,7 @@ exports.turn = async (req, res) => {
 
             if (result !== 'ongoing') {
                 game.activities.push(
-                    'Player ' + result + ' has own the game'
+                    'Player ' + result + ' has won the game'
                 );
             }
 
