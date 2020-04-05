@@ -11,7 +11,7 @@ exports.start = async (req, res) => {
         // else create new
         const existingGame = await Game.findOne({result: 'ongoing'});
 
-        if (existingGame) {
+        if (existingGame && !req.body.restart) {
             return res.status(200).json({
                 type: 'old',
                 game: existingGame
