@@ -135,7 +135,7 @@ function verifyGameResult(data, row, column) {
         matchBoxes.push([r, column]);
     }
 
-    if (total % boxNumber === 0) {
+    if (total !== 0 && total % boxNumber === 0) {
         return [total, matchBoxes];
     }
 
@@ -148,7 +148,7 @@ function verifyGameResult(data, row, column) {
         matchBoxes.push([row, c]);
     }
 
-    if (total % boxNumber === 0) {
+    if (total !== 0 && total % boxNumber === 0) {
         return [total, matchBoxes];
     }
 
@@ -162,7 +162,7 @@ function verifyGameResult(data, row, column) {
             matchBoxes.push([i, i]);
         }
 
-        if (total % boxNumber === 0) {
+        if (total !== 0 && total % boxNumber === 0) {
             return [total, matchBoxes];
         }
     }
@@ -177,7 +177,7 @@ function verifyGameResult(data, row, column) {
             matchBoxes.push([i, (boxNumber - 1 - i)]);
         }
 
-        if (total % boxNumber === 0) {
+        if (total !== 0 && total % boxNumber === 0) {
             return [total, matchBoxes];
         }
     }
