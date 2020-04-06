@@ -90,3 +90,8 @@ function onListening() {
     : 'port ' + addr.port;
   debug('Listening on ' + bind);
 }
+
+/**
+ * Allow for Testing
+ */
+module.exports = server;
