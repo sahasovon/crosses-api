@@ -1,0 +1,29 @@
+version: '3'
+
+services:
+
+  crosses-api-test:
+    container_name: crosses-api-test
+    restart: 'no'
+    build: 
+      context: './'
+      dockerfile: 'test.dockerfile'
+    expose: 
+      - '80'
+      - '443'
+    links:
+      - 'crosses-db-test'
+    environment:
+      - "MONGO_HOST=crosses-db-test"
+      - "MONGO_DBNAME=crosses-test"
+    volumes:
+      - ./:/app
+  
+  crosses-db-test:
+    container_name: crosses-db-test
+    restart: 'no'
+    image: 'mongo'
+    expose: 
+      - "27017"
+    logging:
+      driver: none
