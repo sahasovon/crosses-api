@@ -29,11 +29,17 @@ exports.start = async (req, res) => {
             boxArray[i] = rowFilledWithZero;
         }
 
+        let players = {
+            "first": (req.body.players.first === "X") ? "X" : "O"
+        };
+
+        players.second = (players.first === "X") ? "O" : "X";
+
         // Create new game
         const game = await new Game({
             boxNumber: boxNumber,
             boxData: boxArray,
-            players: req.body.players,
+            players: players,
             nextTurnBy: ['first', 'second'][Math.floor(Math.random() * 2)],
             result: 'ongoing'
         }).save();
