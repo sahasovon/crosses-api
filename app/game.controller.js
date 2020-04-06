@@ -126,6 +126,8 @@ exports.turn = async (req, res) => {
 };
 
 function verifyGameResult(data, row, column) {
+    row = parseInt(row);
+    column = parseInt(column);
     let total = 0;
     let matchBoxes = [];
 
