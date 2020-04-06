@@ -1,14 +1,25 @@
 version: '3'
 
 services:
-      
-  tb-mongo:
+
+  crosses-node:
+    container_name: crosses-node
+    restart: 'no'
+    build: .
+    links:
+      - crosses-db
+    volumes:
+      - "./:/app"
+    ports:
+      - "3000:3000"
+    env_file:
+      - ./.env
+
+  crosses-db:
     container_name: crosses-db
     image: 'mongo'
     restart: 'no'
     expose:
       - "27017"
-    ports:
-      - "27017:27017"
     volumes:
       - "./mongo:/data/db"
