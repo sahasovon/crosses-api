@@ -26,7 +26,7 @@ Copy `.env.example` to `.env`:
 
 Header: `Content-Type: application/json`
 
-Body: `{ "players": { "first": "X", "second": "O" } }`
+Body: `{ "restart": bool, "players": { "first": "X", "second": "O" } }`
 
 `POST /game/:id/turn`
 
