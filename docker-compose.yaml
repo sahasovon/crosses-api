@@ -8,12 +8,16 @@ services:
     build: .
     links:
       - crosses-db
+    depends_on:
+      - crosses-db
     volumes:
       - "./:/app"
     ports:
       - "3000:3000"
     env_file:
       - ./.env
+    environment:
+      WAIT_HOSTS: crosses-db:27017
 
   crosses-db:
     container_name: crosses-db
